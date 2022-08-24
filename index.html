@@ -1,0 +1,183 @@
+<html>
+<html lang="en">
+  <head>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/74b9205d96.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--bsicons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <!--internalstyle-->
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+      #maincontainer{
+        border: 2px solid rgb(161, 30, 30);
+      }
+      .col-sm-3{
+        text-align: center;
+        font-size: 100%;
+        border: 2px solid rgb(161, 30, 30);
+        color:black;
+        border-radius: 10px;
+        padding:5px;
+        margin-bottom:20px;
+      }
+      i{
+        font-size: 30px;
+      }
+      #retailerpin
+      {
+        border: none;
+        border-bottom: 2px solid grey;
+      }
+      #retailerpin:hover{
+        border:0px 0px 2px 0px;
+        border-color: black;
+      }
+      .col-sm-3:hover{
+        background-color:rgba(255, 0, 0, 0.226);
+      }
+      button{
+        max-width: 50%;
+      }
+      .btns{
+  display: flex;
+  justify-content: space-around;
+
+}
+    </style>
+    <title>PayFast</title>
+    <link rel="shortcut icon" href="https://cdn4.vectorstock.com/i/1000x1000/11/43/modern-dollar-sign-paper-money-symbol-isolated-vector-33921143.jpg" type="image/jpg">
+  </head>
+  <body>
+    <!-- getdetails -->
+    <div class="container-lg">
+      <div class="row">
+        <div class="col-12 mb-4">
+          <h2 class="display-6 bg-danger text-white text-center p-2">Enter Your Details</h2>
+        </div>
+        <div class="row justify-content-evenly">
+          <div class="col-sm-3">
+            <!-- <i class="bi bi-telephone text-success"></i> -->
+            <p>Enter Account No. <br><input type="number" id="acc" maxlength="15"><br></p>
+          </div>
+          <div class="col-sm-3 ">
+            <!-- <i class="bi bi-bank2 text-info"></i> -->
+            <p>Mobile Number <br><input type="number" id="number" maxlength="10"><br></p>
+          </div>
+          <div class="col-sm-3 ">
+            <!-- <i class="fas fa-map-signs"></i> -->
+            <p>Select Bank<br><Select id="bank">
+            </Select></p>
+          </div>
+          <button type="button" class="btn btn-success col-4 mb-4" onclick="getDetails()">Confirm</button>
+        </div>
+      </div>
+    </div>
+    <!--mainconatinerstart-->
+    <div class="container-lg" id="maincontainer">
+      <div class="row">
+        <div class="col-12 mb-4">
+          <h2 class="display-6 bg-danger text-white text-center p-2">Confirm Money Transfer</h2>
+        </div>
+        <!--details of trans.-->
+        <div class="row justify-content-evenly">
+          <div class="col-sm-3 ">
+            <i class="bi bi-telephone text-success"></i>
+            <p>Remitter Mob No. <br><h5 id="num"></h5></p>
+          </div>
+          <div class="col-sm-3 ">
+            <i class="bi bi-bank2 text-info"></i>
+            <p>Account Number <br><h5 id="account"></h5></p>
+          </div>
+          <div class="col-sm-3 ">
+            <i class="fas fa-map-signs"></i>
+            <p>Bank <br><strong id="bnk"></strong></p>
+          </div>
+        </div>
+        <div class="row justify-content-evenly">
+          <div class="col-sm-3 ">
+            <i class="bi bi-cash-coin text-info"></i>
+            <p>Amount <br>Rs 10,000</p>
+          </div>
+          <div class="col-sm-3">
+            <i class="fas fa-dollar-sign text-warning"></i>
+            <p>Charges<br>Rs 125</p>
+          </div>
+          <div class="col-sm-3">
+            <i class="fas fa-hand-holding-heart text-success"></i>
+            <p>Margin❤<br>Rs 50</p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-sm-3 m-2">
+            <i class="fas fa-wallet"></i>
+            <p>Wallet Deduction <br>Rs 10077.50</p>
+          </div>
+          <div class="col-sm-3 m-2">
+            <i class="fas fa-file-invoice-dollar text-danger"></i>
+            <p>Tax<br>Rs 2.50</p>
+          </div>
+          <div class="col-12 text-center m-3">
+            <h4>Enter Your Pin</h4>
+          </div>
+          <div class="col-4 text-center mb-4">
+            <input type="password" class="pwd" maxlength="4" id="retailerpin">
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn btn-success" onclick="validatePin()">Submit</button>
+          <button class="btn btn-warning">Cancel</button>
+        </div>
+        
+      </div>
+    </div>
+    <footer><center><p>This Page is for Consumer Awareness Purpose . Don't Take it Seriously</p></center>
+    </footer>
+    <!--practicesesion-->
+   
+    
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+    <!-- mylozic -->
+    <script type="module">
+      import {banks} from "./bankName.js"
+      (function(){
+        const bankNameValue = Object.values(banks)
+        let bankNames = bankNameValue.map(index =>`<option>${index}</option>`)
+        document.getElementById('bank').innerHTML=bankNames;
+      })();
+      
+      </script>
+      <script>
+        alert("Enter Your Account Number and Mobile Number For Rs 10,000/-")
+      function getDetails(){
+        let number = document.getElementById('number').value;
+        document.getElementById('num').innerHTML=number;
+        let acc = document.getElementById('acc').value;
+        document.getElementById('account').innerHTML=acc;
+        let bank = document.getElementById('bank').value;
+        document.getElementById('bnk').innerHTML=bank ;
+
+      }
+        function validatePin(){
+        let pin = document.getElementById('retailerpin').value
+        if(pin==5555){
+          alert(`Rs 10000 Sucessfull Transferred to Account Number : ${acc.value}`)
+          }
+        else{
+          alert("Enter Correct Pin")
+          }}
+
+   
+      </script>
+  </body>
+</html>
